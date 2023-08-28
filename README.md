@@ -28,10 +28,17 @@ February 2023 - April 2023
 February 2019 - November 2019
 - I conducted field surveys and collected socio-economic data for the National Bureau of Statistics. I entered survey data questionnaire into the National Bureau of Statistics Microsoft Access database and performed quality checks. I also used Excel and Power BI for data analysis.
 
-### Rego International School
+### Rego International School 
 **Mathematics and Computer Tutor**
 September 2017 - October 2019
 - I taught math and computer science to students from grades 7 to 12. I developed engaging lesson plans that covered topics such as algebra, geometry, calculus, operating systems, networks, hardware and software. I achieved a 95% pass rate on standardized math exams among my students.
+
+### Nemax Computers 
+**Computer Technical Specialist**
+March 2016 - July 2019 (3 years 5 months)
+Enugu State, Nigeria
+- I operated and maintained computer equipment, troubleshot computer issues and provided technical support to staff and customers, developed and maintained spreadsheets and databases for inventory management.
+
   
 ## Contact Information
 
