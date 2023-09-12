@@ -1,99 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Marist Chibuike - Data Scientist and Statistician</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Marist Chibuike - Data Scientist and Statistician</title>
+    <style>
+        /* Style for tabs */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style for tab buttons */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>MARIST CHIBUIKE</h1>
+        <p>My personal portfolio showcasing my resume, projects, and achievements</p>
+        <ul>
+            <li>Email: <a href="mailto:maristchibuike01@gmail.com">maristchibuike01@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/maristco/">LinkedIn</a></li>
+            <li>DataCamp: <a href="https://www.datacamp.com/profile/maristchibuike">DataCamp Portfolio</a></li>
+            <li>Github: <a href="https://github.com/MaristChibuike/Maristchibuike">Github</a></li>
+            <li>Phone: +234 9058200929</li>
+        </ul>
+    </header>
+    
+    <!-- Tab navigation -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'aboutMe')">About Me</button>
+        <button class="tablinks" onclick="openTab(event, 'portfolio')">Portfolio</button>
+        <button class="tablinks" onclick="openTab(event, 'resume')">Resume</button>
+        <button class="tablinks" onclick="openTab(event, 'contact')">Contact</button>
+    </div>
 
-<header>
-  <h1>Marist Chibuike</h1>
-  <h2>Data Scientist and Statistician</h2>
-</header>
+    <!-- About Me tab -->
+    <div id="aboutMe" class="tabcontent">
+        <h2>About Me</h2>
+        <!-- Add your content for the About Me section here -->
+    </div>
 
-<main>
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a data scientist and statistician who loves working with data and creating impactful solutions. I have over 4 years of experience in transforming complex datasets into actionable insights using Python, SQL, Power BI, Excel, and other tools. I have a strong background in statistical modeling, machine learning, cybersecurity, and survey design. I have also earned several certifications in data science and related fields. I graduated from Enugu State University of Science and Technology with a Bachelor of Applied Science in Mathematics and Statistics, and I also completed an Associate's degree in Data Scientist and Engineer from DataCamp. I also have several certifications in data science, data engineering, and cybersecurity management.</p>
-  </section>
+    <!-- Portfolio tab -->
+    <div id="portfolio" class="tabcontent">
+        <h2>Portfolio</h2>
+        <!-- Add your content for the Portfolio section here -->
+    </div>
 
-  <section id="portfolio">
-    <h2>Portfolio Highlights</h2>
-    <ul>
-      <li>Skills: Python, SQL, Power BI, Excel, Statistical Modeling, Machine Learning, Cybersecurity, Microsoft Office 365, CSPro, CAPI, Enumeration</li>
-      <li>Certifications: Data Scientist with Python, Data Analyst with Python, Certified Data Scientist, Data Engineer Associate, Cybersecurity Management</li>
-      <li>Education: Bachelor of Applied Science - Mathematics and Statistics, Enugu State University of Science and Technology, Agbani.</li>
-      <li>DataCamp: Associate's degree in Data Scientist</li>
-    </ul>
-  </section>
+    <!-- Resume tab -->
+    <div id="resume" class="tabcontent">
+        <h2>Resume</h2>
+        <!-- Add your content for the Resume section here -->
+    </div>
 
-  <section id="resume">
-    <h2>Resume</h2>
-    <p>Here is a summary of my work experience and education:</p>
-    <ul>
-      <li>Data Quality Manager Assistant</li>
-      <li>Nigerian Bureau of Statistics (NBS)</li>
-      <li>Mathematics and Computer Tutor</li>
-      <li>Rego International School</li>
-    </ul>
-  </section>
+    <!-- Contact tab -->
+    <div id="contact" class="tabcontent">
+        <h2>Contact</h2>
+        <!-- Add your content for the Contact section here -->
+    </div>
 
-  <section id="contact">
-    <h2>Contact Information</h2>
-    <ul>
-      <li>Email: maristchibuike01@gmail.com</li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/maristco/">https://www.linkedin.com/in/maristco/</a></li>
-      <li>DataCamp: <a href="https://www.datacamp.com/profile/maristchibuike">https://www.datacamp.com/profile/maristchibuike</a></li>
-      <li>Github: <a href="https://github.com/MaristChibuike/MaristChibuike">https://github.com/MaristChibuike/MaristChibuike</a></li>
-    </ul>
-  </section>
+    <script>
+        // Function to open a specific tab content
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-</main>
-
-<footer>
-  <p>Copyright &copy; 2023 Marist Chibuike</p>
-</footer>
-
-<style>
-  body {
-    background-color: dark;
-  }
-
-  section {
-    padding: 20px;
-    border: 1px solid gray;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 10px;
-  }
-
-  a {
-    color: white;
-  }
-
-  .tabs {
-    display: flex;
-    border-bottom: 1px solid gray;
-  }
-
-  .tab {
-    width: 100px;
-    text-align: center;
-    border: 1px solid transparent;
-    cursor: pointer;
-  }
-
-  .tab.active {
-    border-bottom: 2px solid black;
-  }
-</style>
-
+        // Open the default tab
+        document.getElementById("aboutMe").style.display = "block";
+    </script>
 </body>
-</
+</html>
