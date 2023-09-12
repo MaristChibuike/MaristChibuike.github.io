@@ -1,6 +1,8 @@
 # MaristChibuike.github.io
 My personal portfolio showcasing my resume, projects, and achievements
 
+--- 
+
 # Marist Chibuike - Data Scientist and Statistician
 
 Hi there! I'm Marist Chibuike, a data scientist and statistician who loves working with data and creating impactful solutions. In this portfolio, you can find my resume, projects, achievements, and more. I hope you enjoy browsing through my work and learning more about me.
@@ -39,6 +41,54 @@ March 2016 - July 2019 (3 years 5 months)
 Enugu State, Nigeria
 - I operated and maintained computer equipment, troubleshot computer issues and provided technical support to staff and customers, developed and maintained spreadsheets and databases for inventory management.
 
+## Education
+
+**Associate Data Scientist and Associate Data Engineer**
+*DataCamp* | New York, United States
+* Graduation Date: September 2023
+* Completed online courses and projects on data analysis, visualization, machine learning, and big data.
+* Earned certificates of completion and two Career track certifications.
+* Received recognition award as one of the top-performing students.
+
+## Certifications
+
+* **Associate Data Scientist Certification** - DataCamp
+   * Comprehensive training in data analysis, machine learning, and data visualization.
+   * Proficiency in Python and statistical data analysis.
+
+* **Associate Data Engineer Certification** - DataCamp
+   * In-depth knowledge of big data technologies and database management.
+   * Mastery of SQL for data querying and manipulation.
+
+## Skills
+
+* **Data Analysis:** Proficient in Microsoft Excel for data manipulation, analysis, and visualization.
+* **Data Visualization:** Experienced in creating interactive dashboards using Microsoft Power BI.
+* **Programming:** Skilled in Python for data analysis, machine learning, and automation.
+* **Database Management:** Proficient in SQL for data querying and management.
+* **Statistical Analysis:** Strong background in statistical analysis and data interpretation.
+* **Problem Solving:** Adept at identifying and solving complex data-related challenges.
+* **Communication:** Effective communication skills for translating data insights into actionable recommendations.
+
+## Projects
+
+* **Supply Chain Data Analysis Dashboard**
+   * Developed a Power BI dashboard to visualize supply chain data.
+   * Analyzed historical data to identify cost-saving opportunities.
+   * Provided actionable insights to improve supply chain efficiency.
+
+* **Bicycle Sales Prediction Model**
+   * Utilized Python to build a machine learning model to predict bicycle sales.
+   * Achieved an accuracy rate of 85% in sales predictions.
+   * Enabled better inventory management and demand forecasting.
+
+* **Nigeria GDP Trends Analysis**
+   * Conducted an in-depth analysis of Nigeria's GDP data to identify trends and patterns.
+   * Presented findings to stakeholders, guiding investment decisions.
+
+* **Population and Leadership Data Analysis**
+   * Conducted statistical analysis on Nigeria's population and leadership data.
+   * Discovered correlations between leadership trends and demographic factors.
   
 ## Contact Information
 
