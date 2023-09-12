@@ -1,6 +1,10 @@
-# MaristChibuike.github.io
+# MARIST CHIBUIKE
 My personal portfolio showcasing my resume, projects, and achievements
-
+- Email: maristchibuike01@gmail.com
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/maristco/)
+- DataCamp: [DataCamp Portfolio](https://www.datacamp.com/profile/maristchibuike)
+- Github: [Github](https://github.com/MaristChibuike/Maristchibuike)
+- Phone: +234 9058200929
 --- 
 
 # Marist Chibuike - Data Scientist and Statistician
@@ -18,28 +22,13 @@ Data is my passion and my profession. I have over 4 years of experience in trans
 - **Education:** Bachelor of Applied Science - Mathematics and Statistics, Enugu State University of Science and Technology, Agbani.
 - **DataCamp:** Associate's degree in Data Scientist
 
-## Experience
+--- 
 
-### National Population Commission Nigeria
-**Special Workforce (Data Quality Manager Assistant)**
-February 2023 - April 2023
-- I was part of a team that conducted surveys and collected demographic data using CSpro. I assisted Data Quality Managers in various tasks such as data cleaning, validation, and analysis. I also used ArcGIS for data visualization and mapping. I ensured data quality and integrity throughout the project.
+# Resume
 
-### National Bureau of Statistics Nigeria
-**Statistical Analyst**
-February 2019 - November 2019
-- I conducted field surveys and collected socio-economic data for the National Bureau of Statistics. I entered survey data questionnaire into the National Bureau of Statistics Microsoft Access database and performed quality checks. I also used Excel and Power BI for data analysis.
+## Summary
 
-### Rego International School 
-**Mathematics and Computer Tutor**
-September 2017 - October 2019
-- I taught math and computer science to students from grades 7 to 12. I developed engaging lesson plans that covered topics such as algebra, geometry, calculus, operating systems, networks, hardware and software. I achieved a 95% pass rate on standardized math exams among my students.
-
-### Nemax Computers 
-**Computer Technical Specialist**
-March 2016 - July 2019 (3 years 5 months)
-Enugu State, Nigeria
-- I operated and maintained computer equipment, troubleshot computer issues and provided technical support to staff and customers, developed and maintained spreadsheets and databases for inventory management.
+Passionate data science and data engineering enthusiast with a strong foundation in Python, SQL, Power BI, and Excel. Experienced in data analysis, visualization, and machine learning. Developed and executed projects in supply chain analysis, GDP trends, population statistics, and predictive modeling. Eager to leverage my skills and knowledge in an entry-level data science or data engineering role to drive data-driven decision-making and deliver valuable insights.
 
 ## Education
 
@@ -70,6 +59,33 @@ Enugu State, Nigeria
 * **Problem Solving:** Adept at identifying and solving complex data-related challenges.
 * **Communication:** Effective communication skills for translating data insights into actionable recommendations.
 
+## Work Experience
+
+### Data Quality Manager Assistant
+**National Population Commission Nigeria** | Enugu, Nigeria
+* Assisted the Data Quality Manager in ensuring the accuracy and completeness of census data.
+* Conducted field visits and spot checks to verify the quality of data collection and entry.
+* Reduced data entry errors by 50% through proactive quality control measures.
+* Prepared and submitted regular reports on data quality issues and recommendations.
+* Collaborated with cross-functional teams to resolve data discrepancies and errors.
+* Received training and feedback on data quality management best practices and standards.
+
+### Data Entry (Industrial Training)
+**Nigerian Bureau of Statistics (NBS)** | Enugu, Nigeria
+* Entered and verified data from various sources into the NBS database.
+* Ensured accuracy and completeness of data entry and reports.
+* Collaborated with other data entry staff and supervisors to resolve discrepancies.
+* Followed NBS guidelines and standards for data quality and security.
+* Improved data entry efficiency by implementing new tools and techniques.
+
+### Mathematics and Computer Tutor
+**Rego International School** | Enugu, Nigeria
+* Tutored Mathematics and Computer Science to students from Basic 6 to Basic 9.
+* Prepared lesson plans and assessments aligned with the school curriculum.
+* Enhanced students' understanding and grades through interactive teaching methods.
+* Collaborated with other tutors and teachers to share best practices and feedback.
+* Maintained records of 35 students' progress and attendance.
+
 ## Projects
 
 * **Supply Chain Data Analysis Dashboard**
@@ -82,19 +98,21 @@ Enugu State, Nigeria
    * Achieved an accuracy rate of 85% in sales predictions.
    * Enabled better inventory management and demand forecasting.
 
-* **Nigeria GDP Trends Analysis**
+* **Nigeria GDP, Population and Leadership Trends Data Analysis
    * Conducted an in-depth analysis of Nigeria's GDP data to identify trends and patterns.
    * Presented findings to stakeholders, guiding investment decisions.
-
-* **Population and Leadership Data Analysis**
    * Conducted statistical analysis on Nigeria's population and leadership data.
    * Discovered correlations between leadership trends and demographic factors.
+
+---
+
   
 ## Contact Information
 
 - Email: maristchibuike01@gmail.com
-- LinkedIn: [www.linkedin.com/in/maristco](https://www.linkedin.com/in/maristco/)
-- DataCamp: [www.datacamp.com/profile/maristchibuike](https://www.datacamp.com/profile/maristchibuike)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/maristco/)
+- DataCamp: [DataCamp Portfolio](https://www.datacamp.com/profile/maristchibuike)
+- Github: [Github](https://github.com/MaristChibuike/Maristchibuike)
 
 ## Let's Connect!
 
