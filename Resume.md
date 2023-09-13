@@ -1,6 +1,4 @@
-# Resume
-
-## Summary
+# MARIST CHIBUIKE 
 
 Passionate data science and data engineering enthusiast with a strong foundation in Python, SQL, Power BI, and Excel. Experienced in data analysis, visualization, and machine learning. Developed and executed projects in supply chain analysis, GDP trends, population statistics, and predictive modeling. Eager to leverage my skills and knowledge in an entry-level data science or data engineering role to drive data-driven decision-making and deliver valuable insights.
 
