@@ -4,8 +4,6 @@ My personal portfolio showcasing my resume, projects, and achievements
 - [LinkedIn](https://www.linkedin.com/in/maristco/)
 - [DataCamp Portfolio](https://www.datacamp.com/profile/maristchibuike)
 - [Github](https://MaristChibuike.github.io/maristchibuike.html)
-/
-)
 - Phone: +234 9058200929
 --- 
 
