@@ -1,10 +1,11 @@
 # MARIST CHIBUIKE
 My personal portfolio showcasing my resume, projects, and achievements
-- [Email](maristchibuike01@gmail.com)                        [Project Site](MaristChibuike.html) 
-- [LinkedIn](https://www.linkedin.com/in/maristco/)          [My Resume](MaristChibuike/Resume.md)
+- [Project Site](MaristChibuike.html) 
+- [LinkedIn](https://www.linkedin.com/in/maristco/)
 - [DataCamp Portfolio](https://www.datacamp.com/profile/maristchibuike)
 - [Github](MaristChibuike.html)
 - Phone: +234 9058200929
+- [Email](maristchibuike01@gmail.com)  
 --- 
 
 # Marist Chibuike - Data Scientist and Statistician
