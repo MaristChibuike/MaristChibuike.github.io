@@ -1,256 +1,1021 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marist Chibuike - Data Scientist and Statistician</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        /* Style for tabs */
-        .tab {
-            overflow: hidden;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #001f3f;
+            --accent-color: #00aaff;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #28a745;
+            --text-color: #333;
+            --text-light: #f8f9fa;
+            --transition: all 0.3s ease;
         }
 
-        /* Style for tab buttons */
-        .tab button {
-            background-color: inherit;
-            float: left;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(0, 31, 63, 0.95);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-highlight {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 70px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover no-repeat;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInDown 1s;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 400;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            animation: fadeIn 1.5s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
             border: none;
             outline: none;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #0088cc;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 170, 255, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+        }
+
+        .hero-btns {
+            animation: fadeInUp 1.8s;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+            animation: fadeIn 2s;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f9f9f9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-filters button {
+            border: none;
+            background: none;
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #666;
             cursor: pointer;
-            padding: 14px 16px;
-            transition: 0.3s;
-            font-size: 17px;
+            transition: var(--transition);
+            margin: 5px;
         }
 
-        /* Change color of buttons on hover */
-        .tab button:hover {
-            background-color: #ddd;
+        .portfolio-filters button.active,
+        .portfolio-filters button:hover {
+            color: var(--accent-color);
         }
 
-        /* Create an active/current tablink class */
-        .tab button.active {
-            background-color: #ccc;
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-gap: 30px;
         }
 
-        /* Style the tab content */
-        .tabcontent {
-            display: none;
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            border-top: none;
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-image {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .portfolio-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-tag {
+            padding: 3px 10px;
+            background-color: #f0f0f0;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        .portfolio-links {
+            display: flex;
+        }
+
+        .portfolio-links a {
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .portfolio-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Resume Section */
+        .resume {
+            background-color: #f9f9f9;
+        }
+
+        .resume-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .resume-column {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .resume-column h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .resume-item {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .resume-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .resume-item h5 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .resume-item p.resume-date {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #888;
+            font-style: italic;
+        }
+
+        .resume-item p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .resume-item ul {
+            list-style-type: circle;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .resume-item ul li {
+            margin-bottom: 8px;
+        }
+
+        .certification-badge {
+            max-width: 100px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* Contact Section */
+        .contact-form-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .contact-info p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+            width: 30px;
+        }
+
+        .contact-text {
+            line-height: 1.6;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .contact-text p, .contact-text a {
+            color: #666;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 991px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 50px 0;
+                transition: var(--transition);
+            }
+
+            .nav-links.show {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-image, .about-text {
+                flex: 100%;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero-btns .btn {
+                display: block;
+                margin: 10px 0;
+                width: 100%;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            opacity: 0;
+        }
+
+        .animate.active {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            opacity: 1;
+        }
+
+        .fade-in {
+            animation-name: fadeIn;
+        }
+
+        .fade-in-up {
+            animation-name: fadeInUp;
+        }
+
+        .fade-in-down {
+            animation-name: fadeInDown;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>MARIST CHIBUIKE</h1>
-        <p>My personal portfolio showcasing my resume, projects, and achievements</p>
-        <ul>
-            <li>Email: <a href="mailto:maristchibuike01@gmail.com">maristchibuike01@gmail.com</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/maristco/">LinkedIn</a></li>
-            <li>DataCamp: <a href="https://www.datacamp.com/profile/maristchibuike">DataCamp Portfolio</a></li>
-            <li>Github: <a href="https://github.com/MaristChibuike/Maristchibuike">Github</a></li>
-            <li>Phone: +234 9058200929</li>
-        </ul>
-    </header>
-    
-    <!-- Tab navigation -->
-    <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'aboutMe')">About Me</button>
-        <button class="tablinks" onclick="openTab(event, 'portfolio')">Project</button>
-        <button class="tablinks" onclick="openTab(event, 'resume')">Resume</button>
-        <button class="tablinks" onclick="openTab(event, 'contact')">Contact</button>
-    </div>
-
-    <!-- About Me tab -->
-    <div id="aboutMe" class="tabcontent">
-        <h2>About Me</h2>
-        <p>Welcome to my personal portfolio! I'm Marist Chibuike, a passionate data scientist and statistician with a strong drive for working with data to create meaningful solutions.</p>
-
-        <p>With over 4 years of experience in the field, I have honed my skills in data analysis, visualization, and machine learning. My journey started with a Bachelor of Applied Science in Mathematics and Statistics from Enugu State University of Science and Technology, Agbani.</p>
-
-        <p>My curiosity and commitment to continuous learning led me to DataCamp, where I completed an Associate's degree in Data Science and Data Engineering. I also earned several valuable certifications in data science, data engineering, and cybersecurity management.</p>
-
-        <p>My expertise extends to:</p>
-        <ul>
-            <li>Data Analysis using Python and SQL</li>
-            <li>Data Visualization with tools like Microsoft Power BI</li>
-            <li>Statistical Modeling and Machine Learning</li>
-            <li>Cybersecurity</li>
-            
-        </ul>
-
-        <p>My goal is to apply these skills to real-world challenges, turning data into actionable insights that drive decision-making and innovation. I'm excited to explore opportunities in data science and data engineering roles where I can make a meaningful impact.</p>
-    
-        <p>When I'm not working with data, you can find me exploring new datasets, contributing to open-source projects on Github, and staying up-to-date with the latest trends in the world of data.</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">Marist<span class="logo-highlight">Chibuike</span></a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    
+    </nav>
 
-    <!-- Portfolio tab -->
-    <div id="portfolio" class="tabcontent">
-        <h2>Portfolio</h2>
-    
-        <!-- Project 1 -->
-        <h3><a href="https://github.com/MaristChibuike/SupplyChainAnalytics">Supply Chain Data Analysis Dashboard</a></h3>
-        <p>Developed a Power BI dashboard to visualize supply chain data.</p>
-        <p>Analyzed historical data to identify cost-saving opportunities.</p>
-        <p>Provided actionable insights to improve supply chain efficiency.</p>
-    
-        <!-- Project 2 -->
-        <h3><a href="https://github.com/MaristChibuike/Bike_buyers">Bicycle Sales Prediction Model</a></h3>
-        <p>Utilized Python to build a machine learning model to predict bicycle buyers.</p>
-        <p>Achieved an accuracy rate of 68% in buyers predictions.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Marist Chibuike</h1>
+            <h2>Data Scientist & Statistician</h2>
+            <p>Transforming complex data into actionable insights. With expertise in Python, SQL, Power BI, and Statistical Analysis, I help businesses make data-driven decisions.</p>
+            <div class="hero-btns">
+                <a href="#portfolio" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/maristco/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/MaristChibuike/Maristchibuike" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.datacamp.com/profile/maristchibuike" target="_blank"><i class="fas fa-code"></i></a>
+                <a href="mailto:maristchibuike01@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
 
-    
-        <!-- Project 3 Nig GPD and POP -->
-        <h3><a href="https://github.com/MaristChibuike/Economic-Trends-Analysis-Nigeria">Nigeria GDP Population and Leadership Trends  Data Analysis</a></h3>
-        <p>Conducted an in-depth analysis of Nigeria's GDP data to identify trends and patterns.</p>
-        <p>Presented findings to stakeholders, guiding investment decisions.</p>
-        <p>Conducted statistical analysis on Nigeria's population and leadership data.</p>
-        <p>Discovered correlations between leadership trends and demographic factors.</p>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Learn more about my skills, experience, and passion for data science</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/500/500" alt="Marist Chibuike">
+                </div>
+                <div class="about-text">
+                    <h3>Data Scientist & Statistician</h3>
+                    <p>Hello! I'm Marist Chibuike, a passionate data scientist and statistician with a strong drive for working with data to create meaningful solutions.</p>
+                    <p>With over 4 years of experience in the field, I have honed my skills in data analysis, visualization, and machine learning. My journey started with a Bachelor of Applied Science in Mathematics and Statistics from Enugu State University of Science and Technology, Agbani.</p>
+                    <p>My curiosity and commitment to continuous learning led me to DataCamp, where I completed an Associate's degree in Data Science and Data Engineering. I also earned several valuable certifications in data science, data engineering, and cybersecurity management.</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>SQL</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Power BI</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Statistical Analysis</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Machine Learning</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Project 4: Bike Data Analysis -->
-        <h3><a href="https://github.com/MaristChibuike/Bikeshare-Insights_-Summer-in-the-Windy-City">Bikeshare Insights: Summer in the Windy City </a></h3>
-        <p>Analyzed the distribution and popularity of each bike type.</p>
-        <p>Investigated how ride counts vary by day of the week and month.</p>
-        <p>Identified the most frequently used start and end stations.</p>
-        <p>Examined the distribution of ride types (member vs. casual).</p>
-        <p>Visualized start and end station locations on a map.</p>
-        <p>Investigated the distribution of ride durations.</p>
-
-
-
-
-        
-
-        <h2><a href="https://www.datacamp.com/profile/maristchibuike">My DataCamp Portfolio</a></h2>
-    </div>
-         <p>Explore my python and SQL projects at DataCamp.</p>
-
-
-   <!-- Resume tab -->
-    <div id="resume" class="tabcontent">
-        <h2><a href="MaristChibuike.github.io/resume">Resume</a></h2>
-        
-        <!-- Summary -->
-        <h3>Summary</h3>
-        <p>Passionate data science and data engineering enthusiast with a strong foundation in Python, SQL, Power BI, and Excel. Experienced in data analysis, visualization, and machine learning. Developed and executed projects in supply chain analysis, GDP trends, population statistics, and predictive modeling. Eager to leverage my skills and knowledge in an entry-level data science or data engineering role to drive data-driven decision-making and deliver valuable insights.</p>
-    
-        <!-- Education -->
-        <h3>Education</h3>
-
-         <p><strong>Bachelor of Science in Mathematics and Statistics</strong><br>
-        <em>Enugu State University of Science and Technology, Agbani</em> | Enugu, Nigeria <br>
-            Graduation Date: September 2020<br>
-            Graduated with second class lower honors, top 2 in the class.<br>
-            Majored in Applied Statistics and conducted a research project on statistical trend analysis of rainfall in Enugu state.<br>
-            Elected as Departmental Assistant Secretary General for Student Union Government in 2018.</p>
-
-        <p><strong>Associate Data Scientist and Associate Data Engineer</strong><br>
-        <em>DataCamp</em> | New York, United States<br>
-        Graduation Date: September 2023<br>
-           <img scr="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEira2xQT7whQ12-pcnnCOmgG-KQwViiJHtO087VKO4-S3ToflxDpN6exiK1VUo5KxZheR12x2osMcDYp2Vii_ZjjPyxkMi-iff6NJGxbUgVM5zSh1YegXggnpERMSHiZ_3rxmdpFMHOgIvNL4qbimMmWGxCX-cTVG2Dt4tkDL20GqHeN0bM7-MN-P4FVhA/s1563/ingressive_for_good_marist_chibuike.jpeg"><br>
-        Completed online courses and projects on data analysis, visualization, machine learning, and big data.<br>
-        Earned certificates of completion and two Career track certifications.<br>
-        Received recognition award as one of the top-performing students.</p>
-    
-        <!-- Certifications -->
-        <h3>Certifications</h3>
-        <p><strong>Associate Data Scientist Certification</strong> - DataCamp<br>
-            <img src="https://res.cloudinary.com/dyd911kmh/image/upload/v1659085702/Certification/Badges%202022/data-scientist-associate-badge.svg" alt="Associate Data Scientist Certification"> <br>
-        Comprehensive training in data analysis, machine learning, and data visualization.<br>
-        Proficiency in Python and statistical data analysis.</p>
-    
-        <p><strong>Associate Data Engineer Certification</strong> - DataCamp<br>
-            <img src="https://res.cloudinary.com/dyd911kmh/image/upload/v1682007196/Certification/Badges%202022/data-engineer-associate-badge.svg" alt="Associate Data Engineer Certification"><br>
-        In-depth knowledge of big data technologies and database management.<br>
-        Mastery of SQL for data querying and manipulation.</p>
-    
-        <!-- Skills -->
-        <h3>Skills</h3>
-        <ul>
-            <li>Data Analysis: Proficient in Microsoft Excel for data manipulation, analysis, and visualization.</li>
-            <li>Data Visualization: Experienced in creating interactive dashboards using Microsoft Power BI.</li>
-            <li>Programming: Skilled in Python for data analysis, machine learning, and automation.</li>
-            <li>Database Management: Proficient in SQL for data querying and management.</li>
-            <li>Statistical Analysis: Strong background in statistical analysis and data interpretation.</li>
-            <li>Problem Solving: Adept at identifying and solving complex data-related challenges.</li>
-            <li>Communication: Effective communication skills for translating data insights into actionable recommendations.</li>
-        </ul>
-    
-        <!-- Work Experience -->
-        <h3>Work Experience</h3>
-    
-        <!-- Data Quality Manager Assistant -->
-        <h4>Data Quality Manager Assistant</h4>
-        <p><strong>National Population Commission Nigeria</strong> | Enugu, Nigeria</p>
-        <ul>
-            <li>Assisted the Data Quality Manager in ensuring the accuracy and completeness of census data.</li>
-            <li>Conducted field visits and spot checks to verify the quality of data collection and entry.</li>
-            <li>Reduced data entry errors by 50% through proactive quality control measures.</li>
-            <li>Prepared and submitted regular reports on data quality issues and recommendations.</li>
-            <li>Collaborated with cross-functional teams to resolve data discrepancies and errors.</li>
-            <li>Received training and feedback on data quality management best practices and standards.</li>
-        </ul>
-    
-        <!-- Data Entry (Industrial Training) -->
-        <h4>Data Entry (Industrial Training)</h4>
-        <p><strong>Nigerian Bureau of Statistics (NBS)</strong> | Enugu, Nigeria</p>
-        <ul>
-            <li>Entered and verified data from various sources into the NBS database.</li>
-            <li>Ensured accuracy and completeness of data entry and reports.</li>
-            <li>Collaborated with other data entry staff and supervisors to resolve discrepancies.</li>
-            <li>Followed NBS guidelines and standards for data quality and security.</li>
-            <li>Improved data entry efficiency by implementing new tools and techniques.</li>
-        </ul>
-    
-        <!-- Mathematics and Computer Tutor -->
-        <h4>Mathematics and Computer Tutor</h4>
-        <p><strong>Rego International School</strong> | Enugu, Nigeria</p>
-        <ul>
-            <li>Tutored Mathematics and Computer Science to students from Basic 6 to Basic 9.</li>
-            <li>Prepared lesson plans and assessments aligned with the school curriculum.</li>
-            <li>Enhanced students' understanding and grades through interactive teaching methods.</li>
-            <li>Collaborated with other tutors and teachers to share best practices and feedback.</li>
-            <li>Maintained records of 35 students' progress and attendance.</li>
-        </ul>
-    </div>
-
-
-    <!-- Contact tab -->
-    <div id="contact" class="tabcontent">
-        <h2>Contact Me</h2>
-        <p>If you'd like to get in touch with me for collaborations, job opportunities, or any other inquiries, please feel free to reach out through the following contact methods:</p>
-        
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:maristchibuike01@gmail.com">maristchibuike01@gmail.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/maristco/">LinkedIn Profile</a></li>
-            <li><strong>DataCamp:</strong> <a href="https://www.datacamp.com/profile/maristchibuike">DataCamp Portfolio</a></li>
-            <li><strong>Github:</strong> <a href="https://github.com/MaristChibuike/Maristchibuike">Github Profile</a></li>
-        </ul>
-        
-        <p>I'm always open to new opportunities and collaborations, so please don't hesitate to connect with me. I look forward to hearing from you!</p>
-    </div>
-
-
-    <script>
-        // Function to open a specific tab content
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-
-        // Open the default tab
-        document.getElementById("aboutMe").style.display = "block";
-    </script>
-</body>
-</html>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Specialized data solutions tailored to meet your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Comprehensive analysis of your data to extract valuable insights and patterns, enabling informed decision-making and strategic planning.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Visualization</h3>
+                    <p>Creation of interactive dashboards and visualizations that transform complex data into clear, actionable insights using Power BI and other tools.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Development of predictive models and algorithms to forecast trends, classify data, and automate decision processes for your business.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <p>Efficient organization, storage, and retrieval of data through optimized database structures and SQL queries.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Statistical Analysis</h3>
+                    <p>Application of statistical methods to interpret data, test hypotheses, and validate findings to support evidence-based decisions.</p>
+                </div>
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Data Strategy Consulting</h3>
+                    <p>Strategic guidance on how to leverage your data assets effectively to drive business growth and competitive advantage.</p>
+                </div>
+            </div>
+        </div>
