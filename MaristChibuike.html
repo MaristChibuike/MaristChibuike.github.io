@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marist Chibuike - Data Scientist and Statistician</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>Marist Chibuike - Data Scientist & Humanitarian Analyst</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap">
     <style>
         :root {
-            --primary-color: #0066cc;
-            --secondary-color: #001f3f;
-            --accent-color: #00aaff;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --success-color: #28a745;
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
             --text-color: #333;
-            --text-light: #f8f9fa;
-            --transition: all 0.3s ease;
+            --text-light: #7f8c8d;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
         }
 
         .container {
@@ -40,926 +40,759 @@
             padding: 0 20px;
         }
 
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+            background-color: #ccc; /* Placeholder color */
+        }
+
+        .header-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
         /* Navigation */
-        .navbar {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
+        .main-nav {
+            background-color: white;
             padding: 15px 0;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            box-shadow: var(--box-shadow);
         }
 
-        .navbar.scrolled {
-            padding: 10px 0;
-            background-color: rgba(0, 31, 63, 0.95);
-        }
-
-        .navbar-container {
+        .nav-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-highlight {
-            color: var(--accent-color);
+            justify-content: center;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: var(--text-light);
             text-decoration: none;
+            color: var(--dark-color);
             font-weight: 500;
-            transition: var(--transition);
+            font-size: 1.1rem;
+            padding: 10px 0;
             position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
+            transition: color 0.3s ease;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: var(--transition);
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
         }
 
         .nav-links a:hover::after {
             width: 100%;
         }
 
-        .menu-toggle {
+        .mobile-menu-btn {
             display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 70px;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-            color: var(--text-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/api/placeholder/1200/800') center/cover no-repeat;
-            opacity: 0.1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            animation: fadeInDown 1s;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            font-weight: 400;
-            animation: fadeInUp 1s;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            animation: fadeIn 1.5s;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent-color);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: var(--transition);
-            cursor: pointer;
+            background: none;
             border: none;
-            outline: none;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3);
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
         }
 
-        .btn:hover {
-            background-color: #0088cc;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 170, 255, 0.4);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-            margin-left: 15px;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--accent-color);
-        }
-
-        .hero-btns {
-            animation: fadeInUp 1.8s;
-        }
-
-        .social-links {
-            display: flex;
-            margin-top: 30px;
-            animation: fadeIn 2s;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 15px;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        /* About Section */
+        /* Section styles */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title {
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 50px;
             position: relative;
-            display: inline-block;
         }
 
-        .section-title h2::after {
+        .section-title::after {
             content: '';
             position: absolute;
+            height: 4px;
+            width: 70px;
+            background-color: var(--secondary-color);
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 3px;
-            background-color: var(--accent-color);
         }
 
-        .section-title p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
+        /* About Section */
         .about-content {
             display: flex;
+            gap: 40px;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .about-text {
             flex: 1;
-            min-width: 300px;
-            padding: 20px;
         }
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        .about-stats {
+            flex: 1;
+        }
+
+        .stat-item {
+            margin-bottom: 25px;
+        }
+
+        .stat-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
             color: var(--secondary-color);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .skills {
-            margin-top: 30px;
-        }
-
-        .skill-item {
             margin-bottom: 15px;
         }
 
-        .skill-name {
+        .skill-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee; /* Placeholder */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-tags {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .project-tag {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-links {
             display: flex;
             justify-content: space-between;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link.primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .project-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -14px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -14px;
+        }
+
+        .timeline-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-date {
+            color: var(--secondary-color);
+            font-weight: 600;
             margin-bottom: 5px;
         }
 
-        .skill-bar {
-            height: 8px;
-            background-color: #eee;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background-color: var(--accent-color);
-            border-radius: 4px;
-            transition: width 1.5s ease-in-out;
-        }
-
-        /* Services Section */
-        .services {
-            background-color: #f9f9f9;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            grid-gap: 30px;
-        }
-
-        .service-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Portfolio Section */
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .portfolio-filters button {
-            border: none;
-            background: none;
-            padding: 8px 20px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #666;
-            cursor: pointer;
-            transition: var(--transition);
-            margin: 5px;
-        }
-
-        .portfolio-filters button.active,
-        .portfolio-filters button:hover {
-            color: var(--accent-color);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            grid-gap: 30px;
-        }
-
-        .portfolio-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .portfolio-image {
-            display: block;
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .portfolio-info {
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        .portfolio-info h3 {
+        .timeline-title {
             font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 10px;
-            color: var(--secondary-color);
         }
 
-        .portfolio-info p {
-            font-size: 0.9rem;
-            color: #666;
+        .timeline-company {
+            font-weight: 500;
+            color: var(--text-light);
             margin-bottom: 15px;
         }
 
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .portfolio-tag {
-            padding: 3px 10px;
-            background-color: #f0f0f0;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            margin-bottom: 8px;
-            color: #666;
-        }
-
-        .portfolio-links {
-            display: flex;
-        }
-
-        .portfolio-links a {
-            display: inline-block;
-            padding: 5px 15px;
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent-color);
-            transition: var(--transition);
-        }
-
-        .portfolio-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Resume Section */
-        .resume {
-            background-color: #f9f9f9;
-        }
-
-        .resume-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .resume-column {
-            flex: 1;
-            min-width: 300px;
-            padding: 0 20px;
-            margin-bottom: 30px;
-        }
-
-        .resume-column h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-        }
-
-        .resume-item {
-            background-color: #fff;
-            padding: 25px;
+        .certification-card {
+            background-color: white;
             border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-            transition: var(--transition);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
         }
 
-        .resume-item:hover {
+        .certification-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .resume-item h4 {
-            font-size: 1.3rem;
+        .certification-img {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .certification-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .certification-info {
+            padding: 20px;
+        }
+
+        .certification-title {
+            font-size: 1.2rem;
+            font-weight: 600;
             margin-bottom: 10px;
-            color: var(--secondary-color);
         }
 
-        .resume-item h5 {
-            font-size: 1rem;
+        .certification-issuer {
+            color: var(--text-light);
             margin-bottom: 10px;
-            color: var(--accent-color);
         }
 
-        .resume-item p.resume-date {
+        .certification-date {
             font-size: 0.9rem;
-            margin-bottom: 15px;
-            color: #888;
-            font-style: italic;
-        }
-
-        .resume-item p {
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .resume-item ul {
-            list-style-type: circle;
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-
-        .resume-item ul li {
-            margin-bottom: 8px;
-        }
-
-        .certification-badge {
-            max-width: 100px;
-            display: block;
-            margin: 10px 0;
+            color: var(--text-light);
         }
 
         /* Contact Section */
-        .contact-form-container {
+        .contact-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 40px;
+            align-items: flex-start;
         }
 
         .contact-info {
             flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-
-        .contact-info p {
-            margin-bottom: 25px;
-            line-height: 1.8;
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 15px;
+            align-items: flex-start;
+            margin-bottom: 25px;
         }
 
         .contact-icon {
             font-size: 1.5rem;
-            color: var(--accent-color);
+            color: var(--secondary-color);
             margin-right: 15px;
-            width: 30px;
+            margin-top: 5px;
         }
 
-        .contact-text {
-            line-height: 1.6;
-        }
-
-        .contact-text h4 {
-            font-size: 1.1rem;
+        .contact-details h4 {
             margin-bottom: 5px;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
             color: var(--secondary-color);
         }
 
-        .contact-text p, .contact-text a {
-            color: #666;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-text a:hover {
-            color: var(--accent-color);
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
         .form-control {
             width: 100%;
             padding: 12px 15px;
-            font-size: 1rem;
             border: 1px solid #ddd;
             border-radius: 5px;
-            transition: var(--transition);
-            outline: none;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
         }
 
         .form-control:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2);
+            outline: none;
+            border-color: var(--secondary-color);
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 120px;
             resize: vertical;
         }
 
-        .btn-submit {
-            width: 100%;
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-color);
         }
 
         /* Footer */
         footer {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 50px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 300px;
-            padding: 0 20px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .footer-section p {
-            line-height: 1.8;
-            margin-bottom: 20px;
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
         }
 
         .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .footer-links a {
-            color: #ccc;
+            color: white;
+            margin: 0 15px;
             text-decoration: none;
-            transition: var(--transition);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
+            color: var(--secondary-color);
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .footer-social {
+            margin-bottom: 20px;
         }
 
-        .footer-bottom p {
+        .footer-social a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            opacity: 0.8;
             font-size: 0.9rem;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--accent-color);
-            color: var(--text-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 991px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero h2 {
-                font-size: 1.6rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background-color: var(--secondary-color);
-                flex-direction: column;
-                align-items: center;
-                padding: 50px 0;
-                transition: var(--transition);
-            }
-
-            .nav-links.show {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 15px 0;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-image, .about-text {
-                flex: 100%;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
-        @media screen and (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.4rem;
-            }
-
-            .hero-btns .btn {
-                display: block;
-                margin: 10px 0;
-                width: 100%;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
+        .animated {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline::after {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: -9px !important;
+            }
+            
+            .contact-container {
+                flex-direction: column;
             }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .mobile-menu-btn {
+                display: block;
             }
-        }
-
-        .animate {
-            opacity: 0;
-        }
-
-        .animate.active {
-            animation-duration: 1s;
-            animation-fill-mode: both;
-            opacity: 1;
-        }
-
-        .fade-in {
-            animation-name: fadeIn;
-        }
-
-        .fade-in-up {
-            animation-name: fadeInUp;
-        }
-
-        .fade-in-down {
-            animation-name: fadeInDown;
+            
+            .nav-container {
+                justify-content: space-between;
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+            }
+            
+            .nav-links.active {
+                max-height: 500px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container navbar-container">
-            <a href="#" class="logo">Marist<span class="logo-highlight">Chibuike</span></a>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="profile-img">
+                <!-- Replace with your actual profile image -->
+                <!-- <img src="your-profile-pic.jpg" alt="Marist Chibuike"> -->
             </div>
+            <h1 class="header-title">MARIST CHIBUIKE</h1>
+            <p class="header-subtitle">Data Scientist & Analyst | NGO Humanitarian Specialist | Cloud Data Analyst</p>
+            <div class="social-links">
+                <a href="mailto:maristchibuike01@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/maristco/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/MaristChibuike/Maristchibuike"><i class="fab fa-github"></i></a>
+                <a href="https://www.datacamp.com/profile/maristchibuike"><i class="fas fa-chart-bar"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#resume">Resume</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Marist Chibuike</h1>
-            <h2>Data Scientist & Statistician</h2>
-            <p>Transforming complex data into actionable insights. With expertise in Python, SQL, Power BI, and Statistical Analysis, I help businesses make data-driven decisions.</p>
-            <div class="hero-btns">
-                <a href="#portfolio" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/maristco/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/MaristChibuike/Maristchibuike" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.datacamp.com/profile/maristchibuike" target="_blank"><i class="fas fa-code"></i></a>
-                <a href="mailto:maristchibuike01@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
-    <section class="about" id="about">
+    <section id="about" class="animated">
         <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-                <p>Learn more about my skills, experience, and passion for data science</p>
-            </div>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-image">
-                    <img src="/api/placeholder/500/500" alt="Marist Chibuike">
-                </div>
                 <div class="about-text">
-                    <h3>Data Scientist & Statistician</h3>
-                    <p>Hello! I'm Marist Chibuike, a passionate data scientist and statistician with a strong drive for working with data to create meaningful solutions.</p>
+                    <p>Welcome to my personal portfolio! I'm Marist Chibuike, a passionate data scientist and statistician with a strong drive for working with data to create meaningful solutions, particularly in humanitarian contexts.</p>
                     <p>With over 4 years of experience in the field, I have honed my skills in data analysis, visualization, and machine learning. My journey started with a Bachelor of Applied Science in Mathematics and Statistics from Enugu State University of Science and Technology, Agbani.</p>
-                    <p>My curiosity and commitment to continuous learning led me to DataCamp, where I completed an Associate's degree in Data Science and Data Engineering. I also earned several valuable certifications in data science, data engineering, and cybersecurity management.</p>
-                    <div class="skills">
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Python</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
+                    <p>My curiosity and commitment to continuous learning led me to DataCamp, where I completed an Associate's degree in Data Science and Data Engineering. Recently, I've expanded my expertise with Google Cloud Data Analyst certification, enabling me to leverage cloud technologies for data analysis at scale.</p>
+                    <p>I am passionate about using data science to address humanitarian challenges and improve lives. My combined expertise in data analytics and humanitarian work allows me to bridge the gap between technical solutions and real-world impact.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-title">
+                            <span>Data Analysis</span>
+                            <span>95%</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>SQL</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%;"></div>
-                            </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Power BI</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%;"></div>
-                            </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-title">
+                            <span>Data Visualization</span>
+                            <span>90%</span>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Statistical Analysis</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Machine Learning</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%;"></div>
-                            </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-title">
+                            <span>Machine Learning</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-title">
+                            <span>Cloud Data Analysis</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-title">
+                            <span>Humanitarian Data Management</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 88%"></div>
                         </div>
                     </div>
                 </div>
@@ -967,55 +800,142 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Skills Section -->
+    <section id="skills" class="animated" style="background-color: #f5f9fc;">
         <div class="container">
-            <div class="section-title">
-                <h2>My Services</h2>
-                <p>Specialized data solutions tailored to meet your business needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Data Analysis</h3>
-                    <p>Comprehensive analysis of your data to extract valuable insights and patterns, enabling informed decision-making and strategic planning.</p>
-                </div>
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>Data Visualization</h3>
-                    <p>Creation of interactive dashboards and visualizations that transform complex data into clear, actionable insights using Power BI and other tools.</p>
-                </div>
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Machine Learning</h3>
-                    <p>Development of predictive models and algorithms to forecast trends, classify data, and automate decision processes for your business.</p>
-                </div>
-                <div class="service-card animate">
-                    <div class="service-icon">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h3>Database Management</h3>
-                    <p>Efficient organization, storage, and retrieval of data through optimized database structures and SQL queries.</p>
+                    <h3 class="skill-title">Data Analysis</h3>
+                    <p>Proficient in statistical analysis, data cleaning, exploratory data analysis, and interpretation of complex datasets.</p>
                 </div>
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3>Statistical Analysis</h3>
-                    <p>Application of statistical methods to interpret data, test hypotheses, and validate findings to support evidence-based decisions.</p>
+                    <h3 class="skill-title">Data Visualization</h3>
+                    <p>Expert in creating insightful visualizations using Power BI, Python libraries, and other tools to communicate data stories effectively.</p>
                 </div>
-                <div class="service-card animate">
-                    <div class="service-icon">
-                        <i class="fas fa-lightbulb"></i>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3>Data Strategy Consulting</h3>
-                    <p>Strategic guidance on how to leverage your data assets effectively to drive business growth and competitive advantage.</p>
+                    <h3 class="skill-title">Programming</h3>
+                    <p>Skilled in Python programming for data manipulation, analysis, and machine learning model development.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="skill-title">Cloud Data Analytics</h3>
+                    <p>Certified in Google Cloud Platform for data analysis, processing large datasets, and building scalable data solutions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="skill-title">Machine Learning</h3>
+                    <p>Experience in developing predictive models, classification algorithms, and implementing machine learning solutions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="skill-title">Humanitarian Data</h3>
+                    <p>Specialized in data collection, analysis, and management for humanitarian operations and NGO projects.</p>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="animated">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="Supply Chain Analytics">
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">Data Analysis</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Supply Chain Data Analysis Dashboard</h3>
+                        <p class="project-desc">Developed a comprehensive Power BI dashboard to visualize supply chain data. Analyzed historical data to identify cost-saving opportunities and improved supply chain efficiency.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/MaristChibuike/SupplyChainAnalytics" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="Bicycle Sales Prediction">
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Bicycle Sales Prediction Model</h3>
+                        <p class="project-desc">Utilized Python to build a machine learning model to predict bicycle buyers. Achieved an accuracy rate of 68% in buyers predictions, implementing various classification algorithms.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/MaristChibuike/Bike_buyers" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="Nigeria Economic Analysis">
+                        <div class="project-tags">
+                            <span class="project-tag">Data Analysis</span>
+                            <span class="project-tag">Statistical Analysis</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Nigeria GDP & Population Trends Analysis</h3>
+                        <p class="project-desc">Conducted an in-depth analysis of Nigeria's GDP data to identify trends and patterns. Discovered correlations between leadership trends and demographic factors affecting economic growth.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/MaristChibuike/Economic-Trends-Analysis-Nigeria" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="Bikeshare Insights">
+                        <div class="project-tags">
+                            <span class="project-tag">Exploratory Analysis</span>
+                            <span class="project-tag">Visualization</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Bikeshare Insights: Summer in the Windy City</h3>
+                        <p class="project-desc">Analyzed bikeshare data to uncover usage patterns, popular routes, and rider demographics. Visualized start and end station locations, and identified peak usage times and seasonal trends.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/MaristChibuike/Bikeshare-Insights_-Summer-in-the-Windy-City" class="project-link primary">View Project</a>
+                            <a href="#" class="project-link">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="/api/placeholder/400/320" alt="Humanitarian Data Analysis">
+                        <div class="project-tags">
+                            <span class="project-tag">Humanitarian</span>
+                            <span class="project-tag">NGO Data</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Humanitarian Data Management Framework</h3>
+                        <p class="project-desc">Developed a
