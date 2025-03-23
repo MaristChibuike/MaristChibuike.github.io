@@ -1,941 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marist Chibuike - Data Scientist & Humanitarian Analyst</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&display=swap">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --text-light: #7f8c8d;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f9f9f9;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 60px 0 30px;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin-bottom: 20px;
-            box-shadow: var(--box-shadow);
-            background-color: #ccc; /* Placeholder color */
-        }
-
-        .header-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .header-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            max-width: 600px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Navigation */
-        .main-nav {
-            background-color: white;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--box-shadow);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            font-size: 1.1rem;
-            padding: 10px 0;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-color);
-        }
-
-        /* Section styles */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            height: 4px;
-            width: 70px;
-            background-color: var(--secondary-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-stats {
-            flex: 1;
-        }
-
-        .stat-item {
-            margin-bottom: 25px;
-        }
-
-        .stat-title {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 10px;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .skill-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        .skill-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        /* Projects Section */
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background-color: #eee; /* Placeholder */
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-img img {
-            transform: scale(1.05);
-        }
-
-        .project-tags {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            display: flex;
-            gap: 5px;
-        }
-
-        .project-tag {
-            background-color: rgba(44, 62, 80, 0.8);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .project-desc {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .project-links {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .project-link {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        .project-link.primary {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .project-link:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--light-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            width: 50%;
-            padding: 20px 40px;
-            margin-bottom: 30px;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-        }
-
-        .timeline-item:nth-child(odd)::after {
-            right: -14px;
-        }
-
-        .timeline-item:nth-child(even)::after {
-            left: -14px;
-        }
-
-        .timeline-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .timeline-date {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .timeline-company {
-            font-weight: 500;
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-
-        /* Certifications Section */
-        .certifications-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .certification-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease;
-        }
-
-        .certification-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .certification-img {
-            width: 100%;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-
-        .certification-img img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .certification-info {
-            padding: 20px;
-        }
-
-        .certification-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .certification-issuer {
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
-
-        .certification-date {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-right: 15px;
-            margin-top: 5px;
-        }
-
-        .contact-details h4 {
-            margin-bottom: 5px;
-        }
-
-        .contact-details p, .contact-details a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: var(--secondary-color);
-        }
-
-        .contact-form {
-            flex: 1;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-
-        .footer-links {
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-social {
-            margin-bottom: 20px;
-        }
-
-        .footer-social a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.3rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--secondary-color);
-        }
-
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animated {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-right: 20px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline::after {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: -9px !important;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-title {
-                font-size: 2rem;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                justify-content: space-between;
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: white;
-                flex-direction: column;
-                gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.5s ease;
-            }
-            
-            .nav-links.active {
-                max-height: 500px;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid #eee;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .projects-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Marist Chibuike - Data Analyst & Educator Portfolio">
+  <title>Marist Chibuike | Data Analyst & Educator</title>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1A4D34;    /* Rich Forest Green */
+      --secondary-color: #4CAF50;  /* Vibrant Green */
+      --accent-color: #D4AF37;     /* Metallic Gold */
+      --light-bg: #F5F5F5;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: var(--light-bg);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    /* Modern Navigation */
+    .navbar {
+      background: var(--primary-color);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+    .nav-links a:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      margin-top: 70px; /* space for fixed nav */
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: slideUp 1s ease;
+    }
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    /* Section Styles */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--accent-color);
+    }
+    /* About Section */
+    .about-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    .stat-item h3 {
+      color: var(--accent-color);
+      font-size: 2rem;
+    }
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover {
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+    .skill-card i {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    /* Timeline (Experience) */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent-color);
+      border-radius: 50%;
+    }
+    /* Project Cards */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      border: 2px solid transparent;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+    }
+    .project-card a {
+      color: var(--primary-color);
+      font-weight: bold;
+      text-decoration: none;
+    }
+    /* Certifications */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .cert-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid var(--accent-color);
+    }
+    /* Resume Section */
+    .subsection {
+      margin-bottom: 2rem;
+    }
+    .subsection h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+    button {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="container header-content">
-            <div class="profile-img">
-                <!-- Replace with your actual profile image -->
-                <!-- <img src="your-profile-pic.jpg" alt="Marist Chibuike"> -->
-            </div>
-            <h1 class="header-title">MARIST CHIBUIKE</h1>
-            <p class="header-subtitle">Data Scientist & Analyst | NGO Humanitarian Specialist | Cloud Data Analyst</p>
-            <div class="social-links">
-                <a href="mailto:maristchibuike01@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/maristco/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/MaristChibuike/Maristchibuike"><i class="fab fa-github"></i></a>
-                <a href="https://www.datacamp.com/profile/maristchibuike"><i class="fas fa-chart-bar"></i></a>
-            </div>
-        </div>
-    </header>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 style="color: var(--accent-color);">M.C.</h1>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#volunteer">Volunteer</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+        <!-- Added DataCamp link to nav bar -->
+        <a href="https://www.datacamp.com/profile/maristchibuike" target="_blank">DataCamp</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Marist Chibuike</h1>
+    <p>Data Analyst | AI Tutor | Data Science Educator</p>
+    <div style="margin-top: 2rem;">
+      <a href="https://linkedin.com/in/maristchibuike" target="_blank" style="color: var(--accent-color); margin: 0 1rem;">
+        <i class="fab fa-linkedin fa-2x"></i>
+      </a>
+      <a href="https://github.com/MaristChibuike" target="_blank" style="color: var(--accent-color); margin: 0 1rem;">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="animated">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Welcome to my personal portfolio! I'm Marist Chibuike, a passionate data scientist and statistician with a strong drive for working with data to create meaningful solutions, particularly in humanitarian contexts.</p>
-                    <p>With over 4 years of experience in the field, I have honed my skills in data analysis, visualization, and machine learning. My journey started with a Bachelor of Applied Science in Mathematics and Statistics from Enugu State University of Science and Technology, Agbani.</p>
-                    <p>My curiosity and commitment to continuous learning led me to DataCamp, where I completed an Associate's degree in Data Science and Data Engineering. Recently, I've expanded my expertise with Google Cloud Data Analyst certification, enabling me to leverage cloud technologies for data analysis at scale.</p>
-                    <p>I am passionate about using data science to address humanitarian challenges and improve lives. My combined expertise in data analytics and humanitarian work allows me to bridge the gap between technical solutions and real-world impact.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-title">
-                            <span>Data Analysis</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-title">
-                            <span>Data Visualization</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-title">
-                            <span>Machine Learning</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-title">
-                            <span>Cloud Data Analysis</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-title">
-                            <span>Humanitarian Data Management</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-content">
+      <p>Data Scientist and Statistician with 4+ years of experience in data analysis, AI tutoring, and IT administration. Certified professional in Python, Data Science, and Cloud Security. Passionate about transforming raw data into actionable insights and improving educational outcomes through technology.</p>
+      <div class="stats">
+        <div class="stat-item">
+          <h3>4+</h3>
+          <p>Years Experience</p>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="animated" style="background-color: #f5f9fc;">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="skill-title">Data Analysis</h3>
-                    <p>Proficient in statistical analysis, data cleaning, exploratory data analysis, and interpretation of complex datasets.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3 class="skill-title">Data Visualization</h3>
-                    <p>Expert in creating insightful visualizations using Power BI, Python libraries, and other tools to communicate data stories effectively.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="skill-title">Programming</h3>
-                    <p>Skilled in Python programming for data manipulation, analysis, and machine learning model development.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3 class="skill-title">Cloud Data Analytics</h3>
-                    <p>Certified in Google Cloud Platform for data analysis, processing large datasets, and building scalable data solutions.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="skill-title">Machine Learning</h3>
-                    <p>Experience in developing predictive models, classification algorithms, and implementing machine learning solutions.</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3 class="skill-title">Humanitarian Data</h3>
-                    <p>Specialized in data collection, analysis, and management for humanitarian operations and NGO projects.</p>
-                </div>
-            </div>
+        <div class="stat-item">
+          <h3>95%</h3>
+          <p>Student Pass Rate</p>
         </div>
-    </section>
+        <div class="stat-item">
+          <h3>10+</h3>
+          <p>Projects Completed</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="animated">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-container">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Supply Chain Analytics">
-                        <div class="project-tags">
-                            <span class="project-tag">Power BI</span>
-                            <span class="project-tag">Data Analysis</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Supply Chain Data Analysis Dashboard</h3>
-                        <p class="project-desc">Developed a comprehensive Power BI dashboard to visualize supply chain data. Analyzed historical data to identify cost-saving opportunities and improved supply chain efficiency.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/MaristChibuike/SupplyChainAnalytics" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link">Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Bicycle Sales Prediction">
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Machine Learning</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Bicycle Sales Prediction Model</h3>
-                        <p class="project-desc">Utilized Python to build a machine learning model to predict bicycle buyers. Achieved an accuracy rate of 68% in buyers predictions, implementing various classification algorithms.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/MaristChibuike/Bike_buyers" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link">Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Nigeria Economic Analysis">
-                        <div class="project-tags">
-                            <span class="project-tag">Data Analysis</span>
-                            <span class="project-tag">Statistical Analysis</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Nigeria GDP & Population Trends Analysis</h3>
-                        <p class="project-desc">Conducted an in-depth analysis of Nigeria's GDP data to identify trends and patterns. Discovered correlations between leadership trends and demographic factors affecting economic growth.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/MaristChibuike/Economic-Trends-Analysis-Nigeria" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link">Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Bikeshare Insights">
-                        <div class="project-tags">
-                            <span class="project-tag">Exploratory Analysis</span>
-                            <span class="project-tag">Visualization</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Bikeshare Insights: Summer in the Windy City</h3>
-                        <p class="project-desc">Analyzed bikeshare data to uncover usage patterns, popular routes, and rider demographics. Visualized start and end station locations, and identified peak usage times and seasonal trends.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/MaristChibuike/Bikeshare-Insights_-Summer-in-the-Windy-City" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link">Details</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="/api/placeholder/400/320" alt="Humanitarian Data Analysis">
-                        <div class="project-tags">
-                            <span class="project-tag">Humanitarian</span>
-                            <span class="project-tag">NGO Data</span>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Humanitarian Data Management Framework</h3>
-                        <p class="project-desc">Developed a
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <h2>Technical Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <i class="fab fa-python"></i>
+        <h3>Python Analytics</h3>
+        <p>Pandas, NumPy, Scikit-learn</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-database"></i>
+        <h3>SQL & Databases</h3>
+        <p>MySQL, PostgreSQL, ETL</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Data Visualization</h3>
+        <p>Power BI, Tableau, Matplotlib</p>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-cloud"></i>
+        <h3>Cloud Analytics</h3>
+        <p>Google Cloud, BigQuery</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="section-header">
+      <h2>Professional Journey</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>AI Tutor - Mathematics</h3>
+        <p class="company">Mindrift | April 2024 – Present</p>
+        <ul>
+          <li>Designed AI-powered math curriculum for 10k+ students</li>
+          <li>Improved content accuracy by 40%</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <h3>Data Quality Manager Assistant</h3>
+        <p class="company">National Population Commission Nigeria | Feb 2022 – Apr 2023</p>
+        <ul>
+          <li>Managed census data for 500+ interviews</li>
+          <li>Reduced data errors by 35%</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <h3>Statistical Analyst</h3>
+        <p class="company">National Bureau of Statistics Nigeria | Feb 2019 – Nov 2019</p>
+        <ul>
+          <li>Conducted field surveys and compiled socio-economic data</li>
+          <li>Contributed to comprehensive national reports</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <h3>Mathematics & Computer Tutor</h3>
+        <p class="company">Rego International School | Sept 2017 – Oct 2019</p>
+        <ul>
+          <li>Developed engaging lesson plans for grades 6-9</li>
+          <li>Achieved a 95% pass rate on standardized math exams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Supply Chain Analytics</h3>
+        <p>Interactive Power BI dashboard for supply chain optimization.</p>
+        <a href="https://github.com/MaristChibuike/SupplyChainAnalytics" target="_blank" class="project-link">View Case Study →</a>
+      </div>
+      <div class="project-card">
+        <h3>Bicycle Sales Prediction</h3>
+        <p>Python-based machine learning model predicting potential bicycle buyers.</p>
+        <a href="https://github.com/MaristChibuike/Bike_buyers" target="_blank" class="project-link">View Analysis →</a>
+      </div>
+      <div class="project-card">
+        <h3>Nigeria Economic Trends</h3>
+        <p>In-depth GDP, population & leadership data analysis.</p>
+        <a href="https://github.com/MaristChibuike/Economic-Trends-Analysis-Nigeria" target="_blank" class="project-link">View Analysis →</a>
+      </div>
+      <div class="project-card">
+        <h3>Bikeshare Insights</h3>
+        <p>Analysis of ride counts, station popularity and demographics.</p>
+        <a href="https://github.com/MaristChibuike/Bikeshare-Insights_-Summer-in-the-Windy-City" target="_blank" class="project-link">View Insights →</a>
+      </div>
+      <!-- New DataCamp Project Card -->
+      <div class="project-card">
+        <h3>DataCamp Portfolio</h3>
+        <p>Explore additional projects and courses on DataCamp.</p>
+        <a href="https://www.datacamp.com/profile/maristchibuike" target="_blank" class="project-link">Visit DataCamp →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section">
+    <div class="section-header">
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <p>Data Scientist with Python</p>
+      </div>
+      <div class="cert-card">
+        <p>Data Analyst with Python</p>
+      </div>
+      <div class="cert-card">
+        <p>Certified Data Scientist</p>
+      </div>
+      <div class="cert-card">
+        <p>Cyber Threat Management</p>
+      </div>
+      <div class="cert-card">
+        <p>Data Engineer Associate</p>
+      </div>
+      <div class="cert-card">
+        <p>Google Cloud Data Analytics Certificate (Upcoming)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer & Humanitarian Work Section -->
+  <section id="volunteer" class="section">
+    <div class="section-header">
+      <h2>Volunteer & Humanitarian Work</h2>
+    </div>
+    <p style="text-align: center;">My commitment to community development extends beyond my professional work. I actively engage in volunteer activities aimed at education, health, and poverty reduction.</p>
+    <ul style="max-width: 600px; margin: 2rem auto; list-style: disc; padding-left: 2rem;">
+      <li>Collaborated with local NGOs to provide data-driven insights for community projects.</li>
+      <li>Conducted free workshops and mentorship sessions for students in underprivileged areas.</li>
+      <li>Assisted in developing data collection frameworks for humanitarian projects.</li>
+    </ul>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="section">
+    <div class="section-header">
+      <h2>Resume</h2>
+    </div>
+    <div class="subsection">
+      <h3>Summary</h3>
+      <p>I am a dedicated Data Analyst with extensive experience in data collection, analysis, and visualization. With a background in industrial mathematics and statistics, I leverage tools like Python, SQL, SPSS, Power BI, and Excel to deliver actionable insights. My passion for education and innovation drives me to achieve excellence in every project.</p>
+    </div>
+    <div class="subsection">
+      <h3>Experience</h3>
+      <p><strong>Mindrift – AI Tutor (Mathematics Domain)</strong> | April 2024 – Present</p>
+      <ul>
+        <li>Designed and refined AI-generated mathematics content to enhance learner engagement.</li>
+        <li>Collaborated with editors to ensure clarity and precision in educational materials.</li>
+      </ul>
+      <p><strong>Marist College Umuchigbo – IT Administrator & School Portal Administrator</strong> | Sept 2023 – Oct 2024</p>
+      <ul>
+        <li>Managed IT infrastructure and data processing for the school portal.</li>
+        <li>Delivered technical training and support to staff and students.</li>
+      </ul>
+      <p><strong>National Population Commission Nigeria – Data Quality Manager Assistant</strong> | Feb 2022 – Apr 2023</p>
+      <ul>
+        <li>Supported data quality processes during the national census using CAPI systems and ArcGIS.</li>
+        <li>Ensured data accuracy by conducting pre-interviews and troubleshooting technical issues.</li>
+      </ul>
+      <p><strong>National Bureau of Statistics Nigeria – Statistical Analyst</strong> | Feb 2019 – Nov 2019</p>
+      <ul>
+        <li>Conducted field surveys and compiled socio-economic data for statistical reporting.</li>
+        <li>Collaborated on comprehensive reports that informed national policies.</li>
+      </ul>
+      <p><strong>Rego International School – Mathematics & Computer Tutor</strong> | Sept 2017 – Oct 2019</p>
+      <ul>
+        <li>Developed engaging lesson plans for grades 6-9, achieving a 95% pass rate on standardized math exams.</li>
+        <li>Enhanced student performance through tailored teaching methods.</li>
+      </ul>
+    </div>
+    <div class="subsection">
+      <h3>Education</h3>
+      <p><strong>Enugu State University of Science and Technology</strong><br>Bachelor of Applied Science (BASc) in Mathematics and Statistics | Sept 2016 – Aug 2020</p>
+      <p><strong>DataCamp</strong><br>Associate's Degree in Data Science | Feb 2023 – Jun 2023</p>
+      <p><strong>Sanit Augustines Seminary, Ezzamgbo</strong><br>JSSCE & SSSCE | Sept 2009 – Jul 2015</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <h2>Let's Connect</h2>
+    </div>
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scroll functionality for all in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Intersection Observer for section animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach((section) => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
